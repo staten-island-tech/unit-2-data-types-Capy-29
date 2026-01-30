@@ -16,10 +16,12 @@ def tip(service):
 
 def allFactors(number):
     factors = []
-    for factor in range(int(number) * -1 - 1, int(number)+1):
+    if number < 0: number *-1
+    for factor in range(1, int(number)+1):
         if factor:
             if number%factor == 0:
                 factors.append(factor)
+    factors = reversed(factors) + factors
     return(factors)
 
 def greatestCommonFactor(x, y):
@@ -38,5 +40,5 @@ def greatestCommonFactor(x, y):
 while True:
     x = input("x: ")
     y = input("y: ")
-    z = greatestCommonFactor(int(x), int(y))
+    z = allFactors(int(x))
     print(z)
